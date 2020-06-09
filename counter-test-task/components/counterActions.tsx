@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { increment, incrementAsync, decrement } from '../redux/actions'
 import Counter from "./counter"
+import { Button, ButtonContainer, Middle, Top } from '../styled/home'
 
 const CounterActions = () => {
   const count: number = useSelector((state: number) => state)
@@ -8,12 +9,16 @@ const CounterActions = () => {
 
   return (
     <div>
-      <h1>
+      <Top>
         <Counter currentCount={count}/>
-      </h1>
-      <button onClick={() => dispatch(increment())}>+1</button>
-      <button onClick={() => dispatch(decrement())}>-1</button>
-      <button onClick={() => dispatch(incrementAsync())}>+1 (async)</button>
+      </Top>
+      <Middle>
+        <ButtonContainer>
+          <Button onClick={() => dispatch(increment())}>+1</Button>
+          <Button onClick={() => dispatch(decrement())}>-1</Button>
+          <Button onClick={() => dispatch(incrementAsync())}>+1 (async)</Button>
+        </ButtonContainer>
+      </Middle>
     </div>
   )
 }
